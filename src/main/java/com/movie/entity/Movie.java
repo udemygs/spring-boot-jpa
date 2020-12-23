@@ -4,9 +4,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+import org.hibernate.validator.constraints.Range;
 
 @Entity
-@Table(name="MOVIES")
+@Table(name = "MOVIES", uniqueConstraints = @UniqueConstraint(columnNames = { "title" }))
 public class Movie {
 
 	@Id
@@ -16,9 +19,10 @@ public class Movie {
 
 	private String category;
 
-	@Column(name="starrating")
+	@Column(name = "starrating")
+	@Range(min = (long) 0.5, max = (long) 5.0)
 	private double starRating;
-	
+
 	public Movie() {
 		// do nothing
 	}
