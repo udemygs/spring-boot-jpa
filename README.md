@@ -7,20 +7,24 @@ From `pom.xml`, maven dependencies.
 ```
  Spring Boot Started
  Embeded Tomcat
- Mysql(Kindly download and install first)
+ Mysql 8.0 (Kindly download and install first)
  Java 1.8
+ flyway 7.3.2
  Swagger 2.7.0 
  Junit 5.7.0 - Jupiter
 ```
 **2. Configuration:**
 
-1. Configurate Data Source at `application.properties`, set the `<SCHEMA>`
+1. Configurate Data Source at `application.properties`, set the `<SCHEMA>`.
 
-   Eg. spring.datasource.url=jdbc:mysql://localhost:3306/<SCHEMA>?useSSL=false&useTimezone=true&serverTimezone=UTC
+   Eg. spring.datasource.url=jdbc:mysql://localhost:3306/`<SCHEMA>`?useSSL=false&serverTimezone=UTC
 
 **3. Run the spring boot program:**
 
-``` $ ./mvnw spring-boot:run```
+``` 
+	$./mvnw eclipse:eclipse
+	$./mvnw spring-boot:run
+```
 
 Server started: Starting MovieApplication using Java ...
 

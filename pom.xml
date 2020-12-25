@@ -18,6 +18,10 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<flyway.version>7.3.2</flyway.version>
+		<database.url>jdbc:mysql://localhost:3306/movie?serverTimezone=UTC</database.url>
+		<database.user>root</database.user>
+		<database.password>root</database.password>
 	</properties>
 
 	<dependencies>
@@ -93,6 +97,19 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>${flyway.version}</version>
+				<configuration>
+					<url>${database.url}</url>
+					<user>${database.user}</user>
+					<password>${database.password}</password>
+					<schemas>
+						<schema>first</schema>
+					</schemas>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
