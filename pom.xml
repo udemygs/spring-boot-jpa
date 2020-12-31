@@ -19,6 +19,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<flyway.version>7.3.2</flyway.version>
+		<liquibase.version>4.2.2</liquibase.version>
 	</properties>
 
 	<dependencies>
@@ -86,6 +87,12 @@
 			<version>5.7.0</version>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<version>${liquibase.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -102,6 +109,14 @@
 					<configFiles>
 						<configFile>src/main/resources/conf/flyway.conf</configFile>
 					</configFiles>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+				<version>${liquibase.version}</version>
+				<configuration>
+					<propertyFile>src/main/resources/conf/liquibase.properties</propertyFile>
 				</configuration>
 			</plugin>
 		</plugins>
